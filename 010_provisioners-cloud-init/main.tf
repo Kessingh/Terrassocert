@@ -1,6 +1,6 @@
 terraform {
   #backend "local"
-  
+  /*
   cloud {
     organization = "kessingh"
 
@@ -8,7 +8,7 @@ terraform {
       name = "provisioners"
     }
   }
-
+  */
   required_providers {
     aws = {
       source = "hashicorp/aws"
