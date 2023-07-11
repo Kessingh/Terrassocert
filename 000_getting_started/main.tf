@@ -1,21 +1,22 @@
 terraform {
-  backend "remote" {
-    hostname = "app.terraform.io"
-    organization = "ExamPro"
-
-    workspaces {
-      name = "getting-started"
-    }
-  }
-
   required_providers {
     aws = {
-      source  = "hashicorp/aws"
-      version = "3.58.0"
+      source = "hashicorp/aws"
+      version = "5.7.0"
     }
   }
 }
 
-locals {
-  project_name = "Andrew"
+provider "aws" {
+  profile = "default"
+  region  = "ap-south-1"
+}
+
+resource "aws_instance" "test" {
+  ami           = "ami-0d13e3e640877b0b9"
+  instance_type = "t2.micro"
+
+  tags = {
+    Name = "test"
+  }
 }
