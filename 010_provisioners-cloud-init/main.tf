@@ -30,7 +30,7 @@ resource "aws_key_pair" "deployer" {
 resource "aws_security_group" "sg_my_test" {
   name        = "allow_tls"
   description = "my sg test sg"
-  vpc_id      = data.aws_vpc.main
+  vpc_id      = data.aws_vpc.main.id
 
   ingress = [
     {
