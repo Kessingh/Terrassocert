@@ -10,6 +10,11 @@ terraform {
 variable "instance_type" {
   type = string
 }
+
+locals {
+  project_name = "keshav"
+}
+
 provider "aws" {
   profile = "default"
   region  = "ap-south-1"
@@ -20,6 +25,6 @@ resource "aws_instance" "test" {
   instance_type = var.instance_type
 
   tags = {
-    Name = "test"
+    Name = "test-${local.project_name}"
   }
 }
