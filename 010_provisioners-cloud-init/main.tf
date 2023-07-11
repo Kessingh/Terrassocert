@@ -1,4 +1,5 @@
 terraform {
+  /*
   cloud {
     organization = "kessingh"
 
@@ -6,6 +7,7 @@ terraform {
       name = "provisioners"
     }
   }
+  */
   required_providers {
     aws = {
       source = "hashicorp/aws"
@@ -84,7 +86,7 @@ resource "aws_instance" "test" {
   instance_type = "t2.micro"
   key_name = "${aws_key_pair.deployer.key_name}"
   vpc_security_group_ids = [aws_security_group.sg_my_test.id]
-  user_data = data.template_file.user_data.rendered
+  #user_data = data.template_file.user_data.rendered
   tags = {
     Name = "test-provisioner"
   }
