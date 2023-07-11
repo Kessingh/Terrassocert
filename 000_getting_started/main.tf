@@ -28,3 +28,7 @@ resource "aws_instance" "test" {
     Name = "test-${local.project_name}"
   }
 }
+
+output "instance_ip_addr"{
+  value = aws_instance.test.public_ip
+}
