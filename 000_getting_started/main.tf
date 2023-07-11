@@ -7,6 +7,9 @@ terraform {
   }
 }
 
+variable "instance_type" {
+  type = string
+}
 provider "aws" {
   profile = "default"
   region  = "ap-south-1"
