@@ -40,6 +40,9 @@ resource "aws_security_group" "sg_my_test" {
     protocol         = "tcp"
     cidr_blocks      = ["0.0.0.0/0"]
     ipv6_cidr_blocks = []
+    prefix_list_ids  = []
+    security_groups  = []
+    self = false
   },
   {
     description      = "SSH"
@@ -48,16 +51,23 @@ resource "aws_security_group" "sg_my_test" {
     protocol         = "tcp" 
     cidr_blocks      = ["49.37.178.208/32"]
     ipv6_cidr_blocks = []
+    prefix_list_ids  = []
+    security_groups  = []
+    self = false
   }
 ]  
 
   egress = [
     {
+    description = "outgoing traffic"
     from_port        = 0
     to_port          = 0
     protocol         = "-1"
     cidr_blocks      = ["0.0.0.0/0"]
     ipv6_cidr_blocks = ["::/0"]
+    prefix_list_ids  = []
+    security_groups  = []
+    self = false
   }
 ]
   tags = {
