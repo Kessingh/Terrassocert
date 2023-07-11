@@ -11,7 +11,7 @@ terraform {
   */
   required_providers {
     aws = {
-      source = "hashicorp/aws"
+      source  = "hashicorp/aws"
       version = "5.7.0"
     }
   }
@@ -21,7 +21,7 @@ provider "aws" {
   region = "ap-south-1"
 }
 
-data "aws_vpc" "main"{
+data "aws_vpc" "main" {
   id = "vpc-0c7c01d8f590aaf57"
 }
 
@@ -37,55 +37,55 @@ resource "aws_security_group" "sg_my_test" {
 
   ingress = [
     {
-    description      = "HTTP"
-    from_port        = 80
-    to_port          = 80
-    protocol         = "tcp"
-    cidr_blocks      = ["0.0.0.0/0"]
-    ipv6_cidr_blocks = []
-    prefix_list_ids  = []
-    security_groups  = []
-    self = false
-  },
-  {
-    description      = "SSH"
-    from_port        = 22
-    to_port          = 22
-    protocol         = "tcp" 
-    cidr_blocks      = ["49.37.178.208/32"]
-    ipv6_cidr_blocks = []
-    prefix_list_ids  = []
-    security_groups  = []
-    self = false
-  }
-]  
+      description      = "HTTP"
+      from_port        = 80
+      to_port          = 80
+      protocol         = "tcp"
+      cidr_blocks      = ["0.0.0.0/0"]
+      ipv6_cidr_blocks = []
+      prefix_list_ids  = []
+      security_groups  = []
+      self             = false
+    },
+    {
+      description      = "SSH"
+      from_port        = 22
+      to_port          = 22
+      protocol         = "tcp"
+      cidr_blocks      = ["49.37.178.208/32"]
+      ipv6_cidr_blocks = []
+      prefix_list_ids  = []
+      security_groups  = []
+      self             = false
+    }
+  ]
 
   egress = [
     {
-    description = "outgoing traffic"
-    from_port        = 0
-    to_port          = 0
-    protocol         = "-1"
-    cidr_blocks      = ["0.0.0.0/0"]
-    ipv6_cidr_blocks = ["::/0"]
-    prefix_list_ids  = []
-    security_groups  = []
-    self = false
-  }
-]
+      description      = "outgoing traffic"
+      from_port        = 0
+      to_port          = 0
+      protocol         = "-1"
+      cidr_blocks      = ["0.0.0.0/0"]
+      ipv6_cidr_blocks = ["::/0"]
+      prefix_list_ids  = []
+      security_groups  = []
+      self             = false
+    }
+  ]
   tags = {
     Name = "allow_tls"
   }
 }
 
-data "template_file" "user_data"{
+data "template_file" "user_data" {
   template = file("./userdata.yaml")
 }
 
 resource "aws_instance" "test" {
-  ami           = "ami-0d13e3e640877b0b9"
-  instance_type = "t2.micro"
-  key_name = "${aws_key_pair.deployer.key_name}"
+  ami                    = "ami-0d13e3e640877b0b9"
+  instance_type          = "t2.micro"
+  key_name               = aws_key_pair.deployer.key_name
   vpc_security_group_ids = [aws_security_group.sg_my_test.id]
   #user_data = data.template_file.user_data.rendered
   provisioner "local-exec" {
@@ -96,7 +96,7 @@ resource "aws_instance" "test" {
     }
 }
 
-output "public_ip"{
+output "public_ip" {
   value = aws_instance.test.public_ip
 }
 
