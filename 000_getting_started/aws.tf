@@ -7,7 +7,7 @@ resource "aws_instance" "test" {
   }
 }
 
-module "vpc" {
+/*module "vpc" {
   source = "terraform-aws-modules/vpc/aws"
 
   name = "my-vpc"
@@ -25,5 +25,5 @@ module "vpc" {
     Environment = "dev"
   }
 }
-
+*/
 
