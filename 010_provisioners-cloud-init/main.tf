@@ -91,10 +91,14 @@ resource "aws_instance" "test" {
   provisioner "local-exec" {
     command = "echo ${self.private_ip} >> private_ips.txt"
   }
+  provisioner "local-exec" {
+    command = "echo ${self.public_ip} >> public_ips.txt"
+  }
+}
   tags = {
     Name = "test-provisioner"
     }
-}
+
 
 output "public_ip" {
   value = aws_instance.test.public_ip
