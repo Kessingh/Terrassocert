@@ -1,11 +1,31 @@
-terraform {
+terraform { 
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "5.7.0"
+    }
+  }
+}
+ 
+provider "aws" {
+  #profile = "default"
+  region  = "ap-south-1"
 }
 
-module "aws_server" {
-	source = ".//aws_server"
-	instance_type = "t2.micro"
+
+variable "instance_type" {
+  type = string
 }
 
-output "public_ip" {
-  value = module.aws_server.public_ip
+resource "aws_instance" "test" {
+  ami           = "ami-0d13e3e640877b0b9"
+  instance_type = var.instance_type
+
+  tags = {
+    Name = "test-variables"
+  }
+}
+
+output "public_ip"{
+  value = aws_instance.test.public_ip
 }
