@@ -94,17 +94,22 @@ resource "aws_instance" "test" {
   provisioner "local-exec" {
     command = "echo ${self.public_ip} >> ~/public_ips.txt"
   }*/
-   connection {
-    type     = "ssh"
-    user     = "ec2-user"
-    private_key = "${file("~/.ssh/id_rsa")}" 
-    host     = "$(self.public_ip)"
-  }
 
   provisioner "remote-exec" {
+    connection {
+    type     = "ssh"
+    user     = "ec2-user"
+    private_key = "${file("/home/ksingh/.ssh/id_rsa")}" 
+    host     = "$(self.public_ip)"
+  }
     inline = [
       "echo ${self.public_ip} >> ~/public_ips.txt"
     ]
+  }
+
+  provisioner "file" {
+    source      = "conf/myapp.conf"
+    destination = "/etc/myapp.conf"
   }
   tags = {
     Name = "test-provisioner"
