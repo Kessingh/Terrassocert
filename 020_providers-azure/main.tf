@@ -2,15 +2,15 @@ terraform {
   required_providers {
     azurerm = {
       source = "hashicorp/azurerm"
-      version = "2.77.0"
+      version = "3.64.0"
     }
   }
 }
 
 provider "azurerm" {
-  features {}
-}
-
+  features{}
+  }
+/*
 resource "azurerm_resource_group" "terraform_azure_providers" {
 	name = "terraform_azure_providers"
 	location = "East US"
@@ -38,3 +38,4 @@ module "network" {
 output "linux_vm_public_name" {
   value = module.linuxservers.public_ip_dns_name
 }
+*/
