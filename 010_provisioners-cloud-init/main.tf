@@ -109,8 +109,15 @@ resource "aws_instance" "test" {
   }
 
   provisioner "file" {
-    source      = "conf/myapp.conf"
-    destination = "/etc/myapp.conf"
+    source      = "/home/ksingh/testfile"
+    destination = "/home/ec2-user/testfile"
+  connection {
+    type     = "ssh"
+    user     = "ec2-user"
+    #private_key = "${file("${path.module}/home/ksingh/.ssh/id_rsa")}"
+    private_key = "${file("/home/ksingh/.ssh/id_rsa")}" 
+    host     = "${self.public_ip}"
+   }
   }
   tags = {
     Name = "test-provisioner"
@@ -123,6 +130,7 @@ output "public_ip" {
 
 
 
+# null resource need to understand a bit better!!!!!
 
 
 
