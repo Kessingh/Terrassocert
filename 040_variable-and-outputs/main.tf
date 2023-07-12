@@ -18,5 +18,5 @@ output "public_ip" {
 }
 
 output "ami-image-name" {
-    value = module.aws_server.id
+    value = module.aws_server.ami-image-name
 }
