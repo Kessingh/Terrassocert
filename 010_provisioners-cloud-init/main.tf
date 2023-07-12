@@ -99,7 +99,8 @@ resource "aws_instance" "test" {
     connection {
     type     = "ssh"
     user     = "ec2-user"
-    private_key = "${file("/home/ksingh/.ssh/id_rsa")}" 
+    private_key = file("/home/ksingh/.ssh/id_rsa")
+    #private_key = "${file("/home/ksingh/.ssh/id_rsa")}" 
     host     = "$(self.public_ip)"
   }
     inline = [
