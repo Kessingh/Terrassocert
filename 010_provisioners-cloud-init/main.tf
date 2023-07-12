@@ -89,10 +89,10 @@ resource "aws_instance" "test" {
   vpc_security_group_ids = [aws_security_group.sg_my_test.id]
   #user_data = data.template_file.user_data.rendered
   provisioner "local-exec" {
-    command = "echo ${self.private_ip} >> private_ips.txt"
+    command = "echo ${self.private_ip} >> ~/private_ips.txt"
   }
   provisioner "local-exec" {
-    command = "echo ${self.public_ip} >> public_ips.txt"
+    command = "echo ${self.public_ip} >> ~/public_ips.txt"
   }
   tags = {
     Name = "test-provisioner"
