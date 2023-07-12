@@ -14,5 +14,5 @@ module "aws_server" {
 
 output "public_ip" {
   value = module.aws_server.public_ip
-  sensitive = true
+  sensitive = false
 }
