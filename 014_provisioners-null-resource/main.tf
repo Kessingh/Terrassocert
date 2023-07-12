@@ -100,13 +100,13 @@ resource "aws_instance" "test" {
 
 resource "null_resource" "status" {
 	provisioner "local-exec" {
-		command = "aws ec2 wait instance-status-ok --instance-ids ${aws_instance.my_server.id}"
+		command = "aws ec2 wait instance-status-ok --instance-ids ${aws_instance.test.id}"
 	}
 	depends_on = [
-		aws_instance.my_server
+		aws_instance.test
 		]
 }
 
 output "public_ip"{
-	value = aws_instance.my_server.public_ip
+	value = aws_instance.test.public_ip
 }
