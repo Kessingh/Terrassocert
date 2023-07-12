@@ -88,11 +88,23 @@ resource "aws_instance" "test" {
   key_name               = aws_key_pair.deployer.key_name
   vpc_security_group_ids = [aws_security_group.sg_my_test.id]
   #user_data = data.template_file.user_data.rendered
-  provisioner "local-exec" {
+  /*provisioner "local-exec" {
     command = "echo ${self.private_ip} >> ~/private_ips.txt"
   }
   provisioner "local-exec" {
     command = "echo ${self.public_ip} >> ~/public_ips.txt"
+  }*/
+   connection {
+    type     = "ssh"
+    user     = "ec2-user"
+    private_key = "${file("~/.ssh/id_rsa")}" 
+    host     = "$(self.public_ip)"
+  }
+
+  provisioner "remote-exec" {
+    inline = [
+      "echo ${self.public_ip} >> ~/public_ips.txt"
+    ]
   }
   tags = {
     Name = "test-provisioner"
