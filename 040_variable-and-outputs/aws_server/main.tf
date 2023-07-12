@@ -7,6 +7,13 @@ terraform {
   }
 }
 
+locals = {
+  ami = "ami-0d13e3e640877b0b9"
+  instance_type = var.instance_type
+  
+}
+
+
 provider "aws" {
   #profile = "default"
   region = "ap-south-1"
@@ -18,8 +25,8 @@ variable "instance_type" {
 }
 
 resource "aws_instance" "test" {
-  ami           = "ami-0d13e3e640877b0b9"
-  instance_type = var.instance_type
+  ami           = local.ami
+  instance_type = local.instance_type
 
   tags = {
     Name = "test-variables"
