@@ -52,7 +52,7 @@ resource "aws_security_group" "sg_my_test" {
       from_port        = 22
       to_port          = 22
       protocol         = "tcp"
-      cidr_blocks      = ["49.37.178.208/32"]
+      cidr_blocks      = ["152.58.208.189/32"]
       ipv6_cidr_blocks = []
       prefix_list_ids  = []
       security_groups  = []
