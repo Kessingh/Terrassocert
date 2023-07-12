@@ -18,5 +18,5 @@ output "public_ip" {
 }
 
 output "ami-image-name" {
-    value = module.aws_server.latest-amazon-linux-image.id
+    value = module.aws_server.id
 }
