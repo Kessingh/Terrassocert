@@ -16,3 +16,7 @@ output "public_ip" {
   value = module.aws_server.public_ip
   sensitive = false
 }
+
+output "ami-image-name" {
+    value = module.aws_server.latest-amazon-linux-image.id
+}

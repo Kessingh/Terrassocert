@@ -17,8 +17,24 @@ variable "instance_type" {
   type = string
 }
 
+data "aws_ami" "latest-amazon-linux-image" {
+  most_recent      = true
+  owners           = ["amazon"]
+
+  filter {
+    name   = "name"
+    values = ["al2023-ami-2023.0.20230503.0-kernel-6.1-x86_64"]
+  }
+
+  filter {
+    name   = "virtualization-type"
+    values = ["hvm"]
+  }
+}
+
+
 resource "aws_instance" "test" {
-  ami           = "ami-0d13e3e640877b0b9"
+  ami           = data.aws_ami.latest-amazon-linux-image.id
   instance_type = var.instance_type
 
   tags = {
@@ -30,3 +46,7 @@ output "public_ip" {
   value = aws_instance.test.public_ip
   sensitive = false
 } 
+
+output "ami-image-name" {
+    value = data.aws_ami.latest-amazon-linux-image.id
+}
