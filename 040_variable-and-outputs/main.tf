@@ -7,26 +7,11 @@ terraform {
   }
 }
 
-provider "aws" {
-  #profile = "default"
-  region = "ap-south-1"
-}
-
-
-variable "instance_type" {
-  type = string
-}
-
-resource "aws_instance" "test" {
-  ami           = "ami-0d13e3e640877b0b9"
-  instance_type = var.instance_type
-
-  tags = {
-    Name = "test-variables"
-  }
+module "aws_server" {
+	source = "./aws_server"
 }
 
 output "public_ip" {
-  value = aws_instance.test.public_ip
+  value = module.aws_server.aws_instance.test.public_ip
   sensitive = true
 }
