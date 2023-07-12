@@ -1,4 +1,4 @@
-terraform { 
+terraform {
   required_providers {
     aws = {
       source  = "hashicorp/aws"
@@ -6,10 +6,10 @@ terraform {
     }
   }
 }
- 
+
 provider "aws" {
   #profile = "default"
-  region  = "ap-south-1"
+  region = "ap-south-1"
 }
 
 
@@ -26,6 +26,6 @@ resource "aws_instance" "test" {
   }
 }
 
-output "public_ip"{
+output "public_ip" {
   value = aws_instance.test.public_ip
 }
