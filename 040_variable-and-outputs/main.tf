@@ -28,4 +28,5 @@ resource "aws_instance" "test" {
 
 output "public_ip" {
   value = aws_instance.test.public_ip
+  sensitive = true
 }
