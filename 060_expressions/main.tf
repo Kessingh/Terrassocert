@@ -2,14 +2,14 @@ terraform {
 
 }
 
-variable "worlds" {
-	type = list
+variable "hello" {
+	type = string
 }
 
-variable "worlds_map" {
+/*variable "worlds_map" {
 	type = map
 }
 
 variable "worlds_splat" {
 	type = list
-}
+}*/
