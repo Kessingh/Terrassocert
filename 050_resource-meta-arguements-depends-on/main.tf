@@ -36,7 +36,7 @@ resource "aws_instance" "test" {
   ami           = data.aws_ami.latest-amazon-linux-image.id
   instance_type = "t2.micro"
   depends_on = [
-    aws_instance.test-bucket
+    aws_s3_bucket.test-bucket
   ]
   tags = {
     Name = "test-meta-arguments"
