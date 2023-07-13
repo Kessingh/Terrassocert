@@ -29,15 +29,15 @@ data "aws_ami" "latest-amazon-linux-image" {
 
 resource "aws_s3_bucket" "test-bucket" {
   bucket = "kessingh07-test-buscket"
-  depends_on = [
-    aws_instance.test
-  ]
+  
 }
 
 resource "aws_instance" "test" {
   ami           = data.aws_ami.latest-amazon-linux-image.id
   instance_type = "t2.micro"
-
+  depends_on = [
+    aws_instance.test-bucket
+  ]
   tags = {
     Name = "test-meta-arguments"
   }
