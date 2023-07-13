@@ -1,5 +1,5 @@
 worlds=["barsoon","jasoom","sasoom","cosoom"]
-/*worlds_map={
+worlds_map={
 	"barsoon": "mars",
 	"jasoom": "earth",
 	"sasoom": "jupiter",
@@ -11,5 +11,5 @@ worlds_splat=[
 	{mars_name: "sasoom", earth_name: "jupiter"},
 	{mars_name:"cosoom",  earth_name: "venus" }
 ]
-*/
+
 hello="keshav"
