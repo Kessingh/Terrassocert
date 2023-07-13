@@ -26,5 +26,5 @@ resource "aws_instance" "test" {
 }
 
 output "public_ip" {
-  value = value(aws_instance.test)[*].public_ip
+  value = values(aws_instance.test)[*].public_ip
 }
