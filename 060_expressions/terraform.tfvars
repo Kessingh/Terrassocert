@@ -1,5 +1,5 @@
-/*worlds=["barsoon","jasoom","sasoom","cosoom"]
-worlds_map={
+worlds=["barsoon","jasoom","sasoom","cosoom"]
+/*worlds_map={
 	"barsoon": "mars",
 	"jasoom": "earth",
 	"sasoom": "jupiter",
