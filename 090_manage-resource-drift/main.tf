@@ -19,6 +19,10 @@ resource "aws_instance" "my_server" {
 	}
 }
 
+resource "aws_s3_bucket" "bucket" {
+  bucket = "my-new-bucket-0909"
+}
+
 output "public_ip" {
   value = aws_instance.my_server.public_ip
 }
