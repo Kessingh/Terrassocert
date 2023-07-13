@@ -16,4 +16,7 @@ module "apache" {
   server_name     = "apache-modules"
 }
 
-
+output "public_ip" {
+    value = module.apache.public_ip
+  
+}
