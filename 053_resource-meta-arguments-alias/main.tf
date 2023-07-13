@@ -2,14 +2,14 @@ terraform {
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = "3.58.0"
+      version = "5.7.0"
     }
   }
 }
 
 provider "aws" {
   profile = "default"
-  region  = "us-east-1"
+  region  = "ap-south-1"
 }
 
 provider "aws" {
@@ -23,6 +23,7 @@ provider "aws" {
   region  = "us-west-1"
 	alias = "west"
 }
+
 data "aws_ami" "east-amazon-linux-2" {
 	provider = aws.east
  	most_recent = true
