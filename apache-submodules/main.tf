@@ -66,7 +66,7 @@ data "aws_ami" "latest-amazon-linux-image" {
 }
 
 data "template_file" "user_data" {
-  template = file("./userdata.yaml")
+  template = file("${abspath(path.module)}/userdata.yaml")
 }
 
 
