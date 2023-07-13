@@ -2,17 +2,17 @@ terraform {
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = "3.58.0"
+      version = "5.7.0"
     }
   }
 }
 
 provider "aws" {
   profile = "default"
-  region  = "us-east-1"
+  region  = "ap-south-1"
 }
 resource "aws_instance" "my_server" {
-  ami           = "ami-087c17d1fe0178315"
+  ami           = "ami-0d13e3e640877b0b9"
   instance_type = "t2.micro"
 	tags = {
 		Name = "My-Server"
