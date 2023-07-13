@@ -2,18 +2,18 @@ terraform {
   required_providers {
     aws = {
       source = "hashicorp/aws"
-      version = "3.59.0"
+      version = "5.7.0"
     }
   }
 }
 
 provider "aws" {
 	profile = "default"
-	region = "us-east-1"
+	region = "ap-south-1"
 }
 
 data "aws_vpc" "main" {
-	id = "vpc-bd9bdcc7"
+	id = "vpc-0c7c01d8f590aaf57"
 }
 
 locals {
@@ -43,15 +43,15 @@ resource "aws_security_group" "allow_tls" {
       protocol         = ingress.value.protocol
       cidr_blocks      = [data.aws_vpc.main.cidr_block]
       ipv6_cidr_blocks = []
-			prefix_list_ids = []
-			security_groups = []
-			self = false
+	  prefix_list_ids = []
+	  security_groups = []
+	  self = false
 		}
 	}
 
   egress = [
     {
-			description = "outgoing for everyone"
+	  description = "outgoing for everyone"
       from_port        = 0
       to_port          = 0
       protocol         = "-1"
