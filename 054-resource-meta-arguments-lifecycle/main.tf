@@ -18,7 +18,7 @@ resource "aws_instance" "my_server" {
 		Name = "My-Server"
 	}
 	lifecycle {
-		prevent_destroy = true
+		prevent_destroy = false
 	} 
 }
 
