@@ -36,7 +36,7 @@ resource "aws_s3_bucket" "test-bucket" {
 
 resource "aws_instance" "test" {
   ami           = data.aws_ami.latest-amazon-linux-image.id
-  instance_type = var.instance_type
+  instance_type = "t2.micro"
 
   tags = {
     Name = "test-meta-arguments"
