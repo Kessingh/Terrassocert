@@ -2,28 +2,42 @@ terraform {
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = "3.58.0"
+      version = "5.7.0"
     }
   }
 }
 
 provider "aws" {
-  profile = "default"
-  region  = "us-east-1"
+  #profile = "default"
+  region = "ap-south-1"
 }
 
-resource "aws_s3_bucket" "bucket" {
-  bucket = "43802482094298-depends-on"
+data "aws_ami" "latest-amazon-linux-image" {
+  most_recent      = true
+  owners           = ["amazon"]
+
+  filter {
+    name   = "name"
+    values = ["al2023-ami-2023.0.20230503.0-kernel-6.1-x86_64"]
+  }
+
+  filter {
+    name   = "virtualization-type"
+    values = ["hvm"]
+  }
 }
 
-resource "aws_instance" "my_server" {
-  ami           = "ami-087c17d1fe0178315"
-  instance_type = "t2.micro"
-	depends_on = [
-		aws_s3_bucket.bucket
-	]
+
+resource "aws_instance" "test" {
+  ami           = data.aws_ami.latest-amazon-linux-image.id
+  instance_type = var.instance_type
+
+  tags = {
+    Name = "test-meta-arguments"
+  }
 }
+
 
 output "public_ip" {
-  value = aws_instance.my_server.public_ip
+  value = aws_instance.test.public_ip
 }
