@@ -12,4 +12,3 @@ worlds_splat=[
 	{mars_name:"cosoom",  earth_name: "venus" }
 ]
 
-hello="keshav"
