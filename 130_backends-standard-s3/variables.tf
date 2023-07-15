@@ -23,9 +23,9 @@ variable "server_name" {
 	type = string
 }
 
-variable "workspace_iam_roles" {
+/*variable "workspace_iam_roles" {
   default = {
     staging    = "arn:aws:iam::STAGING-ACCOUNT-ID:role/Terraform"
     production = "arn:aws:iam::PRODUCTION-ACCOUNT-ID:role/Terraform"
   }
-}
+}*/

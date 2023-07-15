@@ -2,14 +2,14 @@ terraform {
   backend "s3" {
     bucket = "terraform-backend-4329408"
     key    = "terraform.tfstate"
-    region = "us-east-1"
+    region = "ap-south-1"
     dynamodb_table = "force-unlock-terraform"
   }
 }
 
 
 provider "aws" {
-  region = "us-east-1"
+  region = "ap-south-1"
 }
 
 resource "aws_s3_bucket" "bucket" {
@@ -17,7 +17,7 @@ resource "aws_s3_bucket" "bucket" {
 }
 
 module "apache" {
-  source  = "ExamProCo/apache-example/aws"
+  source  = "Kessingh/apache-module/aws"
   version = "1.1.0"
 	vpc_id = var.vpc_id
 	my_ip_with_cidr = var.my_ip_with_cidr
@@ -27,5 +27,5 @@ module "apache" {
 }
 
 output "public_ip" {
-  value = module.apache.public_ip
+  value = module.apache-module.public_ip
 }
