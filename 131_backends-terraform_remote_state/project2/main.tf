@@ -13,7 +13,7 @@ data "terraform_remote_state" "vpc" {
 module "apache-module" {
   source  = "Kessingh/apache-module/aws"
   version = "1.1.0"
-	vpc_id = data.vpc.vpc_id
+	vpc_id = data.terraform_remote_state.vpc.vpc_id
 	my_ip_with_cidr = var.my_ip_with_cidr
 	public_key = var.public_key
 	instance_type = var.instance_type
