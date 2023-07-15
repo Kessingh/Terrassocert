@@ -3,7 +3,7 @@ terraform {
     bucket = "terraform-backend-4329408"
     key    = "terraform.tfstate"
     region = "ap-south-1"
-    dynamodb_table = "force-unlock-terraform"
+    #dynamodb_table = "force-unlock-terraform"
   }
 }
 

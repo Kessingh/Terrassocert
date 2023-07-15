@@ -1,6 +1,6 @@
 variable "bucket" {
 	type = string
-	default = "320489324827429471210198"
+	default = "fromvariables.tf1010101"
 }
 
 variable "vpc_id" {
