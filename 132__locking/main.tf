@@ -1,20 +1,19 @@
 terraform {
-  backend "remote" {
-    organization = "ExamPro"
+  cloud {
+    organization = "kessingh"
 
     workspaces {
-      name = "force-unlocking"
+      name = "force-unlock"
     }
   }
 }
-
 provider "aws" {
 	profile = "default"
-	region = "us-east-1"
+	region = "ap-south-1"
 }
 
-module "apache" {
-	source  = "ExamProCo/apache-example/aws"
+module "apache-module" {
+  source  = "Kessingh/apache-module/aws"
   version = "1.1.0"
 	vpc_id = var.vpc_id
 	my_ip_with_cidr = var.my_ip_with_cidr
@@ -24,5 +23,5 @@ module "apache" {
 }
 
 output "public_ip" {
-  value = module.apache.public_ip
+  value = module.apache-module.public_ip
 }
