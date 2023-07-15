@@ -11,7 +11,7 @@ terraform {
 provider "aws" {
   region = "ap-south-1"
   assume_role = "${var.workspace_iam_roles[terraform.workspace]}"
-}
+} 
 
 resource "aws_s3_bucket" "bucket" {
 	bucket = var.bucket
