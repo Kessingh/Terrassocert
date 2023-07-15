@@ -1,4 +1,9 @@
-	my_ip_with_cidr = "104.194.51.113/32"
-	public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDdgyskPBKxTa4G8rIT76MP1zKfL4Xv9UBn/k/p7bEQYLPzhGQfdki3em2Hnh/wGzjeRJsRCCgezMnyirOizm3jXbob5F9QVBGbwn0cQMu1CW9Dx59ce+vJQtz9ezCAocko7W8oij3fr0npJWVQchxiR+yI5lm1PexaESYTTmz/ImzmeF2AJNRDqKR4xFrK9kM22GOm2kd7YYXIxpqDOMZ7j7v1HHU9v9CwgHCGbq0c09EshCXLx0GZ7r3BjRun8vQ9OxgVGIf62MQAUbMPKR0oq84X5oVv/2a4d79Bx46Ttj1xlzP8UHgWrUKHUbpFZ6AZEMMIsLOzoduLk8eCzNvPWH/SkaEoc2ww+7+Ii0fDyeycTHzewQtXxyyzNDyFrZj8b08c+Pg1h26PClMNajUF4eBO8+u4ZbcvsDMdXKimvYeRXXaFMciy6NcMCq0ZwtwvmLsId+pm9Gu1WS/QG3JmRYUSMzc1FPZG9DI2aI3ivG3HQEuYe25hhik6adw24lk= root@DESKTOP-J1KCQ03"
-	instance_type = "t2.micro"
- 	server_name = "Apache Example Server"
+
+
+  my_ip_with_cidr = "49.37.179.29/32"
+
+  public_key      = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCqEqbJD/PVx3Vsj/L9h4lElpTP4XXG/n2NS170sEl+FgH8Ipl+uiV5rl2ja8/InBFVJrH5yYj1lSm2Ew3P5U3QbN7S4evrM14+iScCzLKljpS1aLko0gKr5YAAFxcZ5KmFi6AWDvdBwD7Y2Fm80vHAk7DgC43JqCL0x2x6AWl03q5aaUYN3NUoLaob95xJPm9njbVEUe3D276viooJJLMfjMPecLFEPLYX+wIR26qZLSY65Xpg6cUfo07bZNnYiNWK78E1NOuSU/1nnFu2wmIdyn8jSEUsEdEipGr0CU1plQk/AppBh5A+nOQcNvtenA8W8RfxiNL5iya2K8riJUEUKvD/f2bq0DEGos+meO6SjIkgKZ593yd8tLWGvZvJRIhGIt4EuFnmMlncnPIarvGywvVSCyqkKRO4NrYdewS1Irt8HeABybyhH5VOKiX42f8AyZtTlPu6hWvyJw48Og8T2wWBcjxcDE1Q2uXouV084pBoc07z9VYmdnZWoXlS3T0= ksingh@localhost.localdomain"
+
+  instance_type   = "t2.micro"
+
+  server_name     = "apache-modules"

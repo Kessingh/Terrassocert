@@ -1,6 +1,6 @@
 provider "aws" {
 	profile = "default"
-	region = "us-east-1"
+	region = "ap-south-1"
 }
 
 data "terraform_remote_state" "vpc" {
@@ -10,10 +10,10 @@ data "terraform_remote_state" "vpc" {
 	}
 }
 
-module "apache" {
-  source  = "../../110_modules/terraform-aws-apache-example"
-  #version = "1.0.0"
-	vpc_id = data.terraform_remote_state.vpc.outputs.vpc_id
+module "apache-module" {
+  source  = "Kessingh/apache-module/aws"
+  version = "1.1.0"
+	vpc_id = data.vpc.vpc_id
 	my_ip_with_cidr = var.my_ip_with_cidr
 	public_key = var.public_key
 	instance_type = var.instance_type
@@ -21,5 +21,5 @@ module "apache" {
 }
 
 output "public_ip" {
-  value = module.apache.public_ip
+  value = module.apache-module.public_ip
 }
