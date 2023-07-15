@@ -16,7 +16,7 @@ resource "aws_s3_bucket" "bucket" {
 	bucket = var.bucket
 }
 
-module "apache" {
+module "apache-module" {
   source  = "Kessingh/apache-module/aws"
   version = "1.1.0"
 	vpc_id = var.vpc_id
